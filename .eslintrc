@@ -1,0 +1,36 @@
+{
+  "extends": "eslint:recommended",
+  "eol-last": 2,
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "indent": [
+    2,
+    2,
+    {
+      "SwitchCase": 1
+    }
+  ],
+  "modules": true,
+  "no-unused-vars": 2,
+  "no-multiple-empty-lines": 2,
+  "quotes": [
+    2,
+    "single",
+    "avoid-escape"
+  ],
+  "semi": [
+    2,
+    "never"
+  ],
+  "strict": 0,
+  "space-before-blocks": [
+    2,
+    "always"
+  ],
+  "space-before-function-paren": [
+    2
+  ]
+}
