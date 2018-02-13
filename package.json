@@ -4,7 +4,8 @@
   "description": "A collection of codemods that allow you to transform your angular gulp code to webpack compatible modules.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "test:watch": "ava --watch"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,10 @@
     "babel-eslint": "^8.2.1",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "^4.17.0"
+  },
+  "ava": {
+    "files": [
+      "./tests/*-test.js"
+    ]
   }
 }
