@@ -69,10 +69,10 @@ export default function controller(file, api) {
 
   let program = j.program([
     ...functions,
-    // exportStatement(modFuntions)
-  ]).get('body').insertAfter(exportStatement(modFuntions))
+    exportStatement(modFuntions)
+  ])
 
-  return j(functions).toSource({
+  return j(program).toSource({
     quote: 'single'
   });
 }

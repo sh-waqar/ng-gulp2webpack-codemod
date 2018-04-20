@@ -22,5 +22,4 @@ function SomeDirectiveController(Service) {
     // bam
   }
 }
-
 export { SomeDirectiveController, someDirective };
