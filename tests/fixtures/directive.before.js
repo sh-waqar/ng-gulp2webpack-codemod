@@ -10,7 +10,7 @@
     return {
       restrict: 'E',
       scope: {},
-      templateUrl: 'path/to/template.html',
+      templateUrl: 'app/path/to/module/a/b/template.html',
       controllerAs: 'vm',
       controller: 'SomeDirectiveController',
       bindToController: {
@@ -30,5 +30,4 @@
     }
 
   }
-
 })();

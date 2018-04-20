@@ -1,20 +1,19 @@
-/* @ngInject */
-export default function someDirective() {
+function someDirective() {
+  'ngInject';
   return {
     restrict: 'E',
     scope: {},
-    template: require("./template.html"),
+    template: require('appRootPath/path/to/module/a/b/template.html'),
     controllerAs: 'vm',
-    controller: SomeDirectiveController,
+    controller: 'SomeDirectiveController',
     bindToController: {
       baz: '='
     }
   };
 }
 
-/* @ngInject */
 function SomeDirectiveController(Service) {
-
+  'ngInject';
   var vm = this;
 
   vm.foobar = foobar;
@@ -22,5 +21,6 @@ function SomeDirectiveController(Service) {
   function foobar() {
     // bam
   }
-
 }
+
+export { SomeDirectiveController, someDirective };

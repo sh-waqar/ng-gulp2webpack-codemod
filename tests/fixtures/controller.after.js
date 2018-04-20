@@ -1,6 +1,5 @@
-/* @ngInject */
-export default function SomeController($scope, Service) {
-
+function SomeController($scope, Service) {
+  'ngInject';
   var vm = this;
 
   vm.foobar = foobar;
@@ -14,5 +13,6 @@ export default function SomeController($scope, Service) {
   function foobar() {
     // bam
   }
-
 }
+
+export { SomeController };
