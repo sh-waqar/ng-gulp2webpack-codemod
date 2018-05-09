@@ -3,6 +3,7 @@ import {
   isConstant,
   removeNgInject,
   templateUrlToTemplate,
+  modalTplToRequire,
   exportStatement
 } from './helpers';
 
@@ -64,6 +65,17 @@ export default function controller(file, api) {
       }
     })
     .nodes();
+
+  // Modal tpl require
+  j(definedFunctions)
+    .find(j.CallExpression)
+    .filter(func => {
+      return _.get(func, 'value.callee.object.name') === 'Modal';
+    })
+    .forEach(path => {
+      var props = _.get(path, 'value.arguments[0].properties', []);
+      props.forEach(modalTplToRequire)
+    });
 
   functions = functions.concat(definedFunctions);
 

@@ -61,6 +61,11 @@ export function removeNgInject(path) {
   return j.block(commentBody);
 }
 
+function _tplToRequire(url) {
+  var fileName = url.replace(/^app/, alias.app);
+  return j.callExpression(j.identifier('require'), [j.literal(fileName)]);
+}
+
 export function templateUrlToTemplate(path) {
   if (path.value.key.name !== 'templateUrl') {
     return;
@@ -69,10 +74,20 @@ export function templateUrlToTemplate(path) {
   let templateUrl = path.value.value.value;
 
   if (templateUrl) {
-    var fileName = templateUrl.replace(/^app/, alias.app);
-    var fileReq = j.callExpression(j.identifier('require'), [j.literal(fileName)]);
     path.value.key.name = 'template'
-    path.value.value = fileReq;
+    path.value.value = _tplToRequire(templateUrl);
+  }
+}
+
+export function modalTplToRequire(path) {
+  if (path.key.name !== 'tpl') {
+    return;
+  }
+
+  let templateUrl = path.value.value;
+
+  if (templateUrl) {
+    path.value = _tplToRequire(templateUrl);
   }
 }
 

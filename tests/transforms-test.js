@@ -24,6 +24,14 @@ test(t => {
 })
 
 test(t => {
+  const source = readFileSync('tests/fixtures/controller-modal.before.js').toString();
+  const expected = readFileSync('tests/fixtures/controller-modal.after.js').toString();
+
+  const result = transformer({ source }, { jscodeshift });
+  t.is(result, expected);
+})
+
+test(t => {
   const source = readFileSync('tests/fixtures/directive.before.js').toString();
   const expected = readFileSync('tests/fixtures/directive.after.js').toString();
 
