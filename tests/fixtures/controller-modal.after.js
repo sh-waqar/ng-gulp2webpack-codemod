@@ -20,7 +20,7 @@ function SomeController($scope, Service, Modal) {
       scope: $scope,
       parent: '#sidebar-view',
       title: gettextCatalog.getString('Deactivate App Secret'),
-      tpl: require('appRootPath/path/to/module/a/b/template.html'),
+      tpl: require('./template.html'),
       classes: ['helper-msg', 'confirm-msg', 'with-paragraphs'],
       align: 'center',
       initialModel: {

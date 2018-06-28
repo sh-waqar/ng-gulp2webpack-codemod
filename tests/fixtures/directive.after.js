@@ -3,7 +3,7 @@ function someDirective() {
   return {
     restrict: 'E',
     scope: {},
-    template: require('appRootPath/path/to/module/a/b/template.html'),
+    template: require('./template.html'),
     controllerAs: 'vm',
     controller: 'SomeDirectiveController',
     bindToController: {

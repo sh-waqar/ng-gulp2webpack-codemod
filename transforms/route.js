@@ -1,6 +1,6 @@
 import {
   removeNgInject,
-  templateUrlToTemplate
+  routeTemplateUrlToTemplate
 } from './helpers'
 
 export default function controller(file, api) {
@@ -21,7 +21,7 @@ export default function controller(file, api) {
           return node.name === 1;
         })
         .find(j.Property)
-        .forEach(templateUrlToTemplate)
+        .forEach(routeTemplateUrlToTemplate)
     })
     .nodes();
 

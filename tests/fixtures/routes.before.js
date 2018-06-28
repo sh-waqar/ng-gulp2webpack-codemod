@@ -11,7 +11,7 @@ function config($stateProvider, $urlMatcherFactoryProvider) {
     })
     .state('bar', {
       url: '/bar',
-      templateUrl: 'app/path/to/template.html',
+      templateUrl: 'app/error-page/error-page.html',
       controller: 'BarController',
       controllerAs: 'vm',
       resolve: {

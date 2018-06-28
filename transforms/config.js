@@ -15,7 +15,8 @@ export const modules = {
   'adjust.accountSettings': ['accountSettings', 'appRootPath/account-settings/account-settings'],
   'adjust.inactive': ['inactive', 'appRootPath/inactive/inactive'],
   'adjust.signup': ['signup', 'appRootPath/signup/signup'],
-  'adjust.secretStats': ['signup', 'appRootPath/secret-stats/secret-stats'],
+  'adjust.secretStats': ['secretStats', 'appRootPath/secret-stats/secret-stats'],
+  'adjust.gdpr': ['gdpr', 'appRootPath/gdpr/gdpr'],
 
   'angular': ['angular', 'angular'],
   'ui.router': ['uirouter', 'angular-ui-router'],

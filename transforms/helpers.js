@@ -62,7 +62,12 @@ export function removeNgInject(path) {
 }
 
 function _tplToRequire(url) {
-  var fileName = url.replace(/^app/, alias.app);
+  var fileName = url.replace(/^.*[\\\/]/, './');
+  return j.callExpression(j.identifier('require'), [j.literal(fileName)]);
+}
+
+function _tplToRequireRoute(url) {
+  var fileName = url.replace(/^app\/([a-z-]+)*/, '.');
   return j.callExpression(j.identifier('require'), [j.literal(fileName)]);
 }
 
@@ -96,4 +101,17 @@ export function exportStatement(modules) {
     return j.exportSpecifier(j.identifier(mod), j.identifier(mod));
   })
   return j.exportNamedDeclaration(null, specifiers)
+}
+
+export function routeTemplateUrlToTemplate(path) {
+  if (path.value.key.name !== 'templateUrl') {
+    return;
+  }
+
+  let templateUrl = path.value.value.value;
+
+  if (templateUrl) {
+    path.value.key.name = 'template'
+    path.value.value = _tplToRequireRoute(templateUrl);
+  }
 }
